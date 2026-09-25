@@ -13,5 +13,5 @@ This document defines the core mechanics of the Devgotchi system using EARS (Eas
 - **IF** the pet's HP reaches 0, **THE SYSTEM SHALL** set the pet's status to "Fainted" and require a manual reset.
 
 ## 3. Environmental Interactions
-- **WHEN** the system fetches weather data from the Japan Weather API indicating a temperature below 15°C, **THE SYSTEM SHALL** render a "Winter Clothes" sprite for the pet.
+- **WHEN** the system fetches weather data from the Thailand Weather API indicating a temperature below 24°C, **THE SYSTEM SHALL** render a "Winter Clothes" sprite for the pet.
 - **WHEN** the external MCP server detects a deployed production build, **THE SYSTEM SHALL** grant the pet an "Evolution" item.

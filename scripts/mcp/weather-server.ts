@@ -10,7 +10,7 @@ import type { OpenMeteoResponse } from "../../src/utils/weather";
 // สร้างอินสแตนซ์ของ MCP Server
 const server = new Server(
   {
-    name: "japan-weather-server",
+    name: "thailand-weather-server",
     version: "1.0.0",
   },
   {
@@ -25,8 +25,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
       {
-        name: "get_japan_weather",
-        description: "Fetches current temperature and weather for Tokyo, Japan to update Devgotchi outfit.",
+        name: "get_thailand_weather",
+        description: "Fetches current temperature and weather for Bangkok, Thailand to update Devgotchi outfit.",
         inputSchema: {
           type: "object",
           properties: {},
@@ -38,24 +38,24 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 
 // จัดการการเรียกใช้งาน Tool
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
-  if (request.params.name === "get_japan_weather") {
+  if (request.params.name === "get_thailand_weather") {
     try {
-      // ดึงสภาพอากาศโตเกียวแบบ Realtime (Latitude: 35.6895, Longitude: 139.6917)
+      // ดึงสภาพอากาศกรุงเทพฯแบบ Realtime (Latitude: 13.7563, Longitude: 100.5018)
       const res = await fetch(
-        "https://api.open-meteo.com/v1/forecast?latitude=35.6895&longitude=139.6917&current_weather=true"
+        "https://api.open-meteo.com/v1/forecast?latitude=13.7563&longitude=100.5018&current_weather=true"
       );
       const data = (await res.json()) as OpenMeteoResponse;
-      const temp = data.current_weather?.temperature ?? 20;
+      const temp = data.current_weather?.temperature ?? 32;
 
       return {
         content: [
           {
             type: "text",
             text: JSON.stringify({
-              city: "Tokyo",
+              city: "Bangkok",
               temperature: temp,
-              isCold: temp < 15,
-              recommendedOutfit: temp < 15 ? "Winter Clothes" : "Normal",
+              isCold: temp < 24,
+              recommendedOutfit: temp < 24 ? "Winter Clothes" : "Normal",
             }),
           },
         ],

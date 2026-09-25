@@ -1,9 +1,9 @@
 {
   "mcpServers": {
-    "japan-weather-api": {
+    "thailand-weather-api": {
       "command": "bun",
       "args": ["run", "scripts/mcp/weather-server.ts"],
-      "description": "Fetches current weather data from Tokyo to determine the pet's outfit."
+      "description": "Fetches current weather data from Bangkok to determine the pet's outfit."
     },
     "github-stats": {
       "command": "bun",
