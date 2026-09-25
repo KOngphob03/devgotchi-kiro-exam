@@ -1,0 +1,9 @@
+hooks:
+  - name: Feed Pet on Commit
+    event: post-commit
+    run: bun run scripts/feed.ts
+    description: "Automatically feeds the Devgotchi and adds 50 EXP after every git commit."
+  - name: Code Quality Check
+    event: pre-push
+    run: bun run lint && bun test
+    description: "Ensures the pet doesn't eat buggy code before pushing to GitHub."

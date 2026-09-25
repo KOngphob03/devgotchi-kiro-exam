@@ -1,0 +1,10 @@
+power:
+  name: devgotchi-db-setup
+  description: "Spins up PostgreSQL via Docker and runs Drizzle migrations automatically."
+  execute: |
+    docker-compose up -d db
+    bun x drizzle-kit generate:pg
+    bun x drizzle-kit push:pg
+  dependencies:
+    - docker
+    - bun

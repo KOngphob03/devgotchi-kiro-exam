@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "japan-weather-api": {
+      "command": "bun",
+      "args": ["run", "scripts/mcp/weather-server.ts"],
+      "description": "Fetches current weather data from Tokyo to determine the pet's outfit."
+    },
+    "github-stats": {
+      "command": "bun",
+      "args": ["run", "scripts/mcp/github-server.ts"],
+      "description": "Reads developer's commit streak to calculate bonus EXP."
+    }
+  }
+}
